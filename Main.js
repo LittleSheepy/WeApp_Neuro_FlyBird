@@ -7,7 +7,7 @@ import { Birds } from './js/player/Birds.js'
 import { StartButton } from './js/player/StartButton.js'
 import { Score } from './js/player/Score.js'
 import { Audio} from './js/runtime/Audio.js'
-
+var Neuroevolution = require("./Neuroevolution.js")
 export class Main {
   constructor() {
     this.canvas = wx.createCanvas()

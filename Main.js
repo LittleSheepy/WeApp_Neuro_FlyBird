@@ -17,8 +17,6 @@ export class Main {
     this.audios = Audio.getInstance()
     const loader = ResourcesLoader.create()
     loader.onLoaded(map => this.onResourcesFirstLoaded(map))
-    this.gen = [];
-    
   }
   
   onResourcesFirstLoaded(map) {

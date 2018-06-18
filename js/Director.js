@@ -13,6 +13,7 @@ export class Director {
   }
   
   constructor(){
+    this.gen = [];
     this.dataStore = DataStore.getInstance()
     this.moveSpeed = 2;
     this.gen = Neuvol.nextGeneration();

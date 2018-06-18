@@ -17,6 +17,7 @@ export class Director {
     this.dataStore = DataStore.getInstance()
     this.moveSpeed = 2;
     this.gen = Neuvol.nextGeneration();
+    this.NextPencilHigh = 0;
   }
   
   createPencli(){

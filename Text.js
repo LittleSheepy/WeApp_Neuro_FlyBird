@@ -5,6 +5,9 @@ var Text = function(){
       console.log("执行 Func")
     }
   }
+  self.TextFunc = function(){
+    console.log("执行 TextFunc")
+  }
 }
 
 module.exports = Text

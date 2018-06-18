@@ -2,6 +2,8 @@ import { DataStore } from './base/DataStore.js'
 import { PencliUp } from '../js/runtime/PencliUp.js'
 import { PencliDown } from '../js/runtime/PencliDown.js'
 
+var Neuroevolution = require("../Neuroevolution.js")
+var Neuvol = new Neuroevolution()
 export class Director {
   static getInstance(){
     if(!Director.instance){
@@ -13,6 +15,7 @@ export class Director {
   constructor(){
     this.dataStore = DataStore.getInstance()
     this.moveSpeed = 2;
+    this.gen = Neuvol.nextGeneration();
   }
   
   createPencli(){

@@ -7,7 +7,6 @@ import { Birds } from './js/player/Birds.js'
 import { StartButton } from './js/player/StartButton.js'
 import { Score } from './js/player/Score.js'
 import { Audio} from './js/runtime/Audio.js'
-var Neuroevolution = require("./Neuroevolution.js")
 export class Main {
   constructor() {
     this.canvas = wx.createCanvas()
@@ -18,6 +17,7 @@ export class Main {
     this.audios = Audio.getInstance()
     const loader = ResourcesLoader.create()
     loader.onLoaded(map => this.onResourcesFirstLoaded(map))
+    this.gen = [];
     
   }
   
@@ -34,6 +34,9 @@ export class Main {
     this.dataStore.put('background', BackGround);
     this.dataStore.put('land', Land);
     this.dataStore.put('penclis',[])
+    for (let i = 0; i < 50; i++) {
+      this.dataStore.put('birds'+i, Birds)
+    }
     this.dataStore.put('birds', Birds)
     this.dataStore.put('startButton', StartButton)
     this.dataStore.put('score', Score)
@@ -45,7 +48,7 @@ export class Main {
 
   registerEvent(){
     wx.onTouchStart((e) => {
-      console.log("onTouchStart")
+      //console.log("onTouchStart")
       console.log(e.touches)
       if(this.director.isGameOver){
         this.init()
@@ -54,17 +57,16 @@ export class Main {
       }
     })
     wx.onTouchMove(function (e) {
-      console.log("onTouchMove " + e.touches)
+      //console.log("onTouchMove " + e.touches)
     })
 
     wx.onTouchEnd(function (e) {
-      console.log("onTouchEnd " + e.touches)
+      //console.log("onTouchEnd " + e.touches)
     })
 
     wx.onTouchCancel(function (e) {
-      console.log("onTouchCancel")
-      console.log(e.touches)
+      //console.log("onTouchCancel")
+      //console.log(e.touches)
     })
   }
-
 }

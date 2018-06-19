@@ -45,7 +45,7 @@ export class Director {
     for(let i = 0; i <= 2; i++){
       b.y[i] = b.birdsY[i];
     }
-    b.time = 0;
+    b.time = 1;
   } 
 
   // 判断撞击
@@ -101,7 +101,9 @@ export class Director {
     const land = this.dataStore.get('land');
     const pencils = this.dataStore.get('penclis')
     const score = this.dataStore.get('score')
-    if (birds.birdsY[0] + birds.birdsHeight[0] >= land.y) {
+    if (birds.birdsY[0] + birds.birdsHeight[0] >= land.y
+      || birds.birdsY[0] <= 0
+    ) {
       this.isGameOver = true;
       return
     }
@@ -165,7 +167,7 @@ export class Director {
 
         var res = this.gen[i].compute(inputs);
         if (res > 0.5) {
-          birdsEvent(bird)
+          this.birdsEvent(bird)
         }
 
         bird.draw();

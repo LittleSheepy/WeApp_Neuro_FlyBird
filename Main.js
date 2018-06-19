@@ -40,7 +40,8 @@ export class Main {
     this.dataStore.put('score', Score)
     this.director.createPencli()
     this.registerEvent()
-    this.director.run()
+   // this.director.run()
+    this.director.start()
     //console.log("out init函数")
   }
 

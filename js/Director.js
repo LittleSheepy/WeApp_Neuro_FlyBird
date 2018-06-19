@@ -3,7 +3,10 @@ import { PencliUp } from '../js/runtime/PencliUp.js'
 import { PencliDown } from '../js/runtime/PencliDown.js'
 
 var Neuroevolution = require("../Neuroevolution.js")
-var Neuvol = new Neuroevolution()
+var Neuvol = new Neuroevolution({
+  population: 50,
+  network: [2, [2], 1],
+})
 export class Director {
   static getInstance(){
     if(!Director.instance){
@@ -18,13 +21,16 @@ export class Director {
     this.moveSpeed = 2;
     this.gen = Neuvol.nextGeneration();
     this.NextPencilHigh = 0;
+    this.Holls = [];
   }
   
   createPencli(){
     let systemHeight = wx.getSystemInfoSync().windowHeight;
     let minPencilY = systemHeight / 8;
     let maxPencil = systemHeight / 2;
+    let gap = systemHeight / 5;
     let top = minPencilY + Math.random() * ( maxPencil - minPencilY )
+    this.Holls.push(top + gap)
     this.dataStore.get('penclis').push(new PencliUp(top))
     this.dataStore.get('penclis').push(new PencliDown(top))
   }
@@ -57,7 +63,7 @@ export class Director {
     }
 
     const birdsBorder = {
-      top:birds.y[0],
+      top: birds.birdsY[0],
       bottom:birds.birdsY[0]+birds.birdsHeight[0],
       left:birds.birdsX[0],
       right:birds.birdsX[0] + birds.birdsWidth[0]
@@ -80,8 +86,22 @@ export class Director {
     if (birds.birdsX[0] > pencils[0].x + pencils[0].width && score.isScore){
       score.isScore = false;
       score.scoreNumber++;
-      
+      this.Holls.shift()
     }
+  }
+  update(){
+    var self = this;
+    console.log("update")
+    var nextHoll = this.Holls[0];
+    for (let i = 0; i < 50; i++) {
+      this.dataStore.get('birds'+i)
+      
+    } 
+
+    setTimeout(() => this.update(), 1000)
+  }
+  start(){
+    setTimeout(() => this.update(),1000)
   }
 
   run(){

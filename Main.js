@@ -32,9 +32,6 @@ export class Main {
     this.dataStore.put('background', BackGround);
     this.dataStore.put('land', Land);
     this.dataStore.put('penclis',[])
-    for (let i = 0; i < 50; i++) {
-      this.dataStore.put('birds'+i, Birds)
-    }
     this.dataStore.put('birds', Birds)
     this.dataStore.put('startButton', StartButton)
     this.dataStore.put('score', Score)

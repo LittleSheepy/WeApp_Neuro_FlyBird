@@ -32,6 +32,7 @@ export class Birds extends Sprite{
     this.index = 0;
     this.count = 0;
     this.time = 0;
+    this.alive = true;
 
   }
 

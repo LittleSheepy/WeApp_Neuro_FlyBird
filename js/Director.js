@@ -186,6 +186,7 @@ export class Director {
           Neuvol.networkScore(this.gen[i], this.score);
           if (this.isItEnd()) {
             this.start();
+            return;
           }
         }
       }

@@ -192,7 +192,7 @@ export class Director {
       }
     } 
     this.score++;
-    setTimeout(() => this.update(), 1)
+    setTimeout(() => this.update(), 10)
   }
   start(){
     console.log("开始")
@@ -203,7 +203,7 @@ export class Director {
     for (let i = 0; i < 50; i++) {
       this.dataStore.put('birds' + i, Birds)
     }
-    setTimeout(() => this.update(),1)
+    setTimeout(() => this.update(),10)
   }
 
   run(){

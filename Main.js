@@ -47,9 +47,9 @@ export class Main {
       //console.log("onTouchStart")
       console.log(e.touches)
       if(this.director.isGameOver){
-        this.init()
+        //this.init()
       }else{
-        this.director.birdsEvent()
+        //this.director.birdsEvent()
       }
     })
     wx.onTouchMove(function (e) {
